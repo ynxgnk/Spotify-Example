@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+struct LibraryPlaylistsResponse: Codable { /* 1743 */
+    let items: [Playlist] /* 1744 */
+}

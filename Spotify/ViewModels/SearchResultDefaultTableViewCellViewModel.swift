@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+struct SearchResultDefaultTableViewCellViewModel { /* 1337 */
+    let title: String /* 1338 */
+    let imageURL: URL? /* 1339 */
+}

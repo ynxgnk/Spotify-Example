@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+struct RecommendedTrackCellViewModel { /* 685 */
+    let name: String /* 686 */
+    let artistName: String /* 686 */
+    let artworkURL: URL? /* 686 */
+}

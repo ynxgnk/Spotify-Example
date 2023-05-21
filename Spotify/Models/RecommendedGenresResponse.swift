@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+struct RecommendedGenresResponse: Codable { /* 453 */
+    let genres: [String] /* 454 */
+}

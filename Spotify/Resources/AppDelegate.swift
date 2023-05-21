@@ -10,10 +10,28 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    var window: UIWindow? /* 3 */
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+
+        let window = UIWindow(frame: UIScreen.main.bounds) /* 4 */
+        
+        if AuthManager.shared.isSignedIn { /* 43 */
+            AuthManager.shared.refreshIfNeeded(completion: nil) /* 369 */
+            window.rootViewController = TabBarViewController() /* 6 */
+        }
+        else { /* 44 */
+            let navVC = UINavigationController(rootViewController: WelcomeViewController()) /* 51 */
+            navVC.navigationBar.prefersLargeTitles = true /* 54 */
+            navVC.viewControllers.first?.navigationItem.largeTitleDisplayMode = .always /* 53 */
+            window.rootViewController = navVC /* 45 */ /* 52 change code to navVC */
+        }
+        
+        window.makeKeyAndVisible() /* 5 */
+        self.window = window /* 7 */
+
+//        print(AuthManager.shared.signInURL?.absoluteString) /* 105 */
+        
         return true
     }
 
